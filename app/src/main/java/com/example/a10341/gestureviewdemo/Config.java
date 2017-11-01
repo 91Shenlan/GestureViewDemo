@@ -5,6 +5,8 @@ package com.example.a10341.gestureviewdemo;
  */
 
 public class Config {
+
+
 //    /row = (int) Math.sqrt(circle_count);
 //    column = row;
 //    rowBlock = width/ row;
