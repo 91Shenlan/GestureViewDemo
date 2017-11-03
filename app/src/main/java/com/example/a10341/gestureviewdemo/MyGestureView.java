@@ -40,8 +40,8 @@ public class MyGestureView extends View {
     private float lastSelectPointX;
     private float lastSelectPointY;
     private float circleX;
-    private float outCircleRadius=-1;
-    private float interCircleRadius=-1;
+    private float outCircleRadius;
+    private float interCircleRadius;
 
     private int columnBlock;
     private int rowBlock;
@@ -52,6 +52,7 @@ public class MyGestureView extends View {
     private int circle_count = 9;
     private Point newPoint;
     private Runnable resetRunnable;
+//    private float outCircleRadius;
 
 
     public MyGestureView(Context context) {
@@ -85,8 +86,8 @@ public class MyGestureView extends View {
             select_color = tr.getColor(R.styleable.MyGestureView_select_color, select_color);
             circle_count = tr.getInteger(R.styleable.MyGestureView_circle_conut, circle_count);
             defCircleColor = tr.getColor(R.styleable.MyGestureView_defCirCleColor, defCircleColor);
-            outCircleRadius = tr.getFloat(R.styleable.MyGestureView_outCircleRadius, outCircleRadius);
-           interCircleRadius=tr.getFloat(R.styleable.MyGestureView_interCircleRadius,interCircleRadius);
+            outCircleRadius = tr.getFloat(R.styleable.MyGestureView_outCircleRadius, -1);
+           interCircleRadius=tr.getFloat(R.styleable.MyGestureView_interCircleRadius,-1);
 
         }
 
@@ -260,7 +261,6 @@ public class MyGestureView extends View {
             canvas.drawCircle(selectCircle.cx, selectCircle.cy, outCircleRadius, outerCirclePaint);
 
         }
-        drawLine(canvas);
     }
 
     private void drawInitCircle(Canvas canvas) {
